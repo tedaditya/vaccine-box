@@ -1,6 +1,7 @@
 import React from "react";
 import Home from "./pages/home/Home";
 import Notify from "./pages/notify/Notify";
+import Log from "./pages/log/Log";
 import {
   BrowserRouter,
   Routes,
@@ -15,6 +16,7 @@ function App() {
           <Route path="/">
             <Route index element={<Home/>}/>
             <Route path="/notify" element={<Notify/>}/>
+            <Route path="/log" element={<Log/>}/>
           </Route>
         </Routes>
       </BrowserRouter>

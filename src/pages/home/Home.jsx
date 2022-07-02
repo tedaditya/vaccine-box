@@ -1,14 +1,13 @@
-import React from 'react';
 import Chart from '../../components/chart/Chart';
 import Navbar from "../../components/navbar/Navbar"
 import Selector from '../../components/selector/Selector';
-// import Selector from "../../components/selector/Selector"
 import Sidebar from "../../components/sidebar/Sidebar"
-import Widget from "../../components/widget/Widget"
-// import Chart from "../../components/chart/Chart"
 import "./home.css"
+import React from 'react'
+import { useState} from "react";
 
-const Home = () => {
+function Home() {
+    const [dateValue, setValue] = useState(new Date());
     return (
         <>
             <Navbar />
@@ -16,23 +15,14 @@ const Home = () => {
                 <Sidebar />
                 <div className="homeContainer">
                     <p className='homeLabel'>Select month</p>
-                    <Selector />
-                    <p className='homeLabel mt'>This month data summary</p>
-                    <div className="widgets">
-                        <Widget title="Maximum" suhu="15" />
-                        <Widget title="Average" suhu="7" />
-                        <Widget title="Minimum" suhu="5" />
-                    </div>
+                    <Selector dateValue={dateValue} setValue={setValue}/>
                     <p className='homeLabel mt'>Realtime data update</p>
                     <div>
-                        <Chart />
+                        <Chart bulan={dateValue.getMonth()+1} tahun={dateValue.getFullYear()} />
                     </div>
-
-
                 </div>
             </div>
         </>
-
     )
 }
 

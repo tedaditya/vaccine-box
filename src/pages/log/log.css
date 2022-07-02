@@ -1,0 +1,38 @@
+.log {
+    display: flex;
+
+}
+
+.logContainer {
+    background-color: #F8F8F8;
+    min-height: 90vh;
+    flex: 10;
+    padding: 32px;
+
+}
+
+.widgets {
+    display: flex;
+    gap: 24px;
+}
+
+.qrcodeContainer{
+    text-align: center;
+}
+
+.qrcode {
+    width: 25%;
+    
+}
+.homeLabel {
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 29px;
+
+    color: #001D3D;
+    margin-bottom: 12px;
+}
+
+.mt{
+    margin-top: 24px;
+}

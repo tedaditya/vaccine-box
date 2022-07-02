@@ -2,6 +2,7 @@ import React from 'react';
 import './sidebar.css'
 import DashboardIcon from '@mui/icons-material/Dashboard';
 import NotificationsActiveIcon from '@mui/icons-material/NotificationsActive';
+import CampaignIcon from '@mui/icons-material/Campaign';
 
 const Sidebar = () => {
     return (
@@ -21,6 +22,14 @@ const Sidebar = () => {
                             <NotificationsActiveIcon className='icon' />
                             <br />
                             <span>Notify</span>
+                        </a>
+
+                    </li>
+                    <li>
+                        <a href='/log'>
+                            <CampaignIcon className='icon' />
+                            <br />
+                            <span>Log</span>
                         </a>
 
                     </li>

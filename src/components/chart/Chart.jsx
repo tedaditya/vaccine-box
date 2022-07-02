@@ -1,12 +1,9 @@
 import axios from 'axios';
-import React, { useState, useEffect, useContext } from 'react'
+import React, { useState, useEffect } from 'react'
 import { Line } from 'react-chartjs-2'
 import 'chartjs-adapter-date-fns';
 import 'chartjs-plugin-zoom';
 import zoomPlugin from 'chartjs-plugin-zoom';
-import { AdapterDateFns } from '@mui/x-date-pickers/AdapterDateFns';
-import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
-import { DatePicker } from '@mui/x-date-pickers/DatePicker';
 import {
     Chart as ChartJS,
     CategoryScale,
@@ -30,17 +27,20 @@ ChartJS.register(
     Legend
 );
 
-const Chart = () => {
+const Chart = (props) => {
     const [label, setLabels] = useState([])
     const [dataset, setDataset] = useState([])
-    const bulan = 6
+    // const [bulan, setBulan] = useState(props.bulan)
+    // const [tahun, setTahun] = useState(props.tahun)
     const testChart = () => {
         let label = [];
         let dataset = [];
+        const bulan = props.bulan;
+        const tahun = props.tahun;
 
         axios.post("http://35.232.8.249:8081/api/temperature", {
             "month": bulan,
-            "year": 2022
+            "year": tahun
         })
             .then(res => {
                 console.log(res);
@@ -60,7 +60,10 @@ const Chart = () => {
     }
     useEffect(() => {
         testChart();
-    }, []);
+        // setBulan(props.bulan);
+        // setTahun(props.tahun);
+    }, [props.bulan,props.tahun]);
+
     const options = {
         scales: {
             x: {
@@ -74,10 +77,6 @@ const Chart = () => {
         plugins: {
             legend: {
                 position: 'top',
-            },
-            title: {
-                display: true,
-                text: 'Chart.js Line Chart',
             },
             zoom: {
                 pan: {
@@ -108,7 +107,7 @@ const Chart = () => {
     };
     return (
         <div className="App">
-            <Line options={options} data={data} />
+            <Line options={options} data={data} redraw={true}/>
         </div>
     )
 }
