@@ -25,6 +25,7 @@
     "faker": "^6.6.6",
     "hammerjs": "^2.0.8",
     "react": "^18.0.0",
+    "react-base64-downloader": "^2.1.7",
     "react-chartjs-2": "^4.1.0",
     "react-datepicker": "^4.7.0",
     "react-dom": "^18.0.0",

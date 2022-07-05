@@ -60,8 +60,6 @@ const Chart = (props) => {
     }
     useEffect(() => {
         testChart();
-        // setBulan(props.bulan);
-        // setTahun(props.tahun);
     }, [props.bulan,props.tahun]);
 
     const options = {

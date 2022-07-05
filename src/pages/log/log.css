@@ -36,3 +36,20 @@
 .mt{
     margin-top: 24px;
 }
+
+.tableContainer{
+    color: #001D3D;
+    background-color: white;
+    padding: 20px;
+    box-shadow: 4px 4px 4px rgba(238, 238, 238, 0.2);
+    border-radius: 8px;
+}
+
+.selectorContainer{
+    color: #001D3D;
+    background-color: white;
+    padding: 20px;
+    box-shadow: 4px 4px 4px rgba(238, 238, 238, 0.2);
+    border-radius: 8px;
+    width: 20%;
+}
