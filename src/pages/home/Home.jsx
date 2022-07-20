@@ -5,7 +5,6 @@ import Sidebar from "../../components/sidebar/Sidebar"
 import "./home.css"
 import React from 'react'
 import { useState } from "react";
-import Button from '@mui/material/Button';
 
 function Home() {
     const [dateValue, setValue] = useState(new Date());
@@ -23,7 +22,6 @@ function Home() {
                     <div className='chartContainer'>
                         <Chart bulan={dateValue.getMonth() + 1} tahun={dateValue.getFullYear()} />
                     </div>
-                    <Button variant="contained">Download</Button>
                 </div>
             </div>
         </>

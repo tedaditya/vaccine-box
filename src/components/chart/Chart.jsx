@@ -1,5 +1,5 @@
 import axios from 'axios';
-import React, { useState, useEffect } from 'react'
+import React, { useState, useRef, useEffect, useCallback } from 'react'
 import { Line } from 'react-chartjs-2'
 import 'chartjs-adapter-date-fns';
 import 'chartjs-plugin-zoom';
@@ -32,6 +32,14 @@ const Chart = (props) => {
     const [dataset, setDataset] = useState([])
     // const [bulan, setBulan] = useState(props.bulan)
     // const [tahun, setTahun] = useState(props.tahun)
+    let ref = useRef(null);
+    const downloadImage = useCallback(() =>{
+        const link = document.createElement("a");
+        link.download = "chart.png";
+        link.href = ref.current.toBase64Image();
+        link.click();
+    },[]);
+
     const testChart = () => {
         let label = [];
         let dataset = [];
@@ -105,7 +113,8 @@ const Chart = (props) => {
     };
     return (
         <div className="App">
-            <Line options={options} data={data} redraw={true}/>
+            <button type='button' onClick={downloadImage}>Download Chart</button>
+            <Line ref={ref} options={options} data={data} redraw={true}/>
         </div>
     )
 }
